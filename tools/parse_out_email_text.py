@@ -34,7 +34,10 @@ def parseOutText(f):
         ### and append the stemmed word to words (make sure there's a single
         ### space between each stemmed word)
 
+        stemmer = SnowballStemmer("english", ignore_stopwords=True)
 
+        for word in text_string.split():
+            print(stemmer.stem(word)),
 
 
 
