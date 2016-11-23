@@ -36,11 +36,11 @@ def parseOutText(f):
 
         stemmer = SnowballStemmer("english", ignore_stopwords=True)
 
-        for word in text_string.split():
-            print(stemmer.stem(word)),
+        stemmer = SnowballStemmer("english")
+        stem_word = " ".join([stemmer.stem(word) for word in text_string.split()])
+        #print stem_word
 
-
-
+    words = stem_word
     return words
 
 

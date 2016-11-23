@@ -47,6 +47,23 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             print path
             email = open(path, "r")
 
+            email_temp=str(parseOutText(email))
+
+            rem=["sara", "shackleton", "chris", "germani"]
+            for word in rem:
+                if(word in email_temp):
+                    email_temp=email_temp.replace(word,"")
+            word_data.append(email_temp)
+
+            if name == "sara":
+                from_data.append(0)
+            else:
+                from_data.append(1)
+
+            #email.close()
+            print word_data[152]
+            print "emails processed"
+
             ### use parseOutText to extract the text from the opened email
 
             ### use str.replace() to remove any instances of the words
@@ -57,7 +74,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             ### append a 0 to from_data if email is from Sara, and 1 if email is from Chris
 
 
-            email.close()
+            #email.close()
 
 print "emails processed"
 from_sara.close()
@@ -71,5 +88,3 @@ pickle.dump( from_data, open("your_email_authors.pkl", "w") )
 
 
 ### in Part 4, do TfIdf vectorization here
-
-
